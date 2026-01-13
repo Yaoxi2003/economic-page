@@ -1,0 +1,132 @@
+@import "tailwindcss";
+
+@theme {
+  /* font */
+  --font-primary: "Kumbh Sans", sans-serif;
+  /* Font sizes */
+  --text-t1: 44px;
+  --text-t2: 28px;
+  --text-t3: 16px;
+  --text-t4: 13px;
+  --text-t5: 12px;
+
+  /* Color */
+  --color-grey950: #1D2026;
+  --color-grey500: #69707D;
+  --color-grey300: #C3CAD9;
+  --color-grey100: #E4E9F2;
+  --color-grey50: #F6F8FD;
+
+  --color-orange500: #FF7E1B;
+  --color-orange300: #FFAB6A;
+ 
+  /* Spacing */
+  --spacing-mobile: 400px;
+  --spacing-tablet: 650px;
+  --spacing-desktop: 1110px;
+
+}
+
+body {
+  color: var(--color-grey500);
+  font-family: var(--font-primary);
+  font-size: var(--text-t3);
+  font-weight: 400;
+  line-height: 1.5;
+  background: white;
+
+  -webkit-font-smoothing: antialiased;
+}
+
+@layer components {
+
+  /*========== Typography ===========*/
+  h1, h2 { 
+    @apply text-t2 text-grey950 font-bold
+  }
+  h1 {
+    @apply sm:text-t1
+  }
+  h3 {
+    @apply text-grey500 text-t5 sm:text-t4 font-bold tracking-widest
+  }
+
+  /*========== button ===========*/
+  button {
+    @apply cursor-pointer
+  }
+
+  .primary-btn {
+    @apply rounded-2xl w-full py-[16px] px-6 flex justify-center items-center gap-3 sm:w-1/2 lg:w-[60%]
+            bg-orange500 text-grey950 transition-colors duration-300
+            shadow-xl shadow-orange500/30 font-bold
+  }
+  .primary-btn:hover {
+    @apply bg-orange300
+  }
+
+  .next-btn {
+    @apply w-10 h-10 rounded-full flex justify-center items-center bg-white 
+           absolute top-1/2 -translate-y-1/2 z-7
+  }
+  .left-btn {
+    @apply left-[5%]
+  }
+  .right-btn {
+    @apply right-[5%]
+  }
+
+  .gallery-item {
+    @apply relative w-[88px] h-[88px] rounded-xl border-[3px] border-white transition-colors duration-300 overflow-hidden
+  }
+  .gallery-hidden-item {
+    @apply relative w-[88px] h-[88px] rounded-xl border-[3px] border-grey950/5 transition-colors duration-300 overflow-hidden
+  }
+  .gallery-item:hover,
+  .gallery-hidden-item:hover {
+    @apply border-orange-500
+  }
+  .gallery-img {
+    @apply w-full h-full object-cover transition-opacity duration-300
+  }
+  
+  .hint {
+    @apply absolute top-0 -translate-y-2 translate-x-2 right-0 px-[5px] rounded-xl z-5 
+            bg-orange500 text-white text-t5 font-bold
+  }
+
+  /*========== general layout ===========*/
+  .container-pro {
+    @apply max-w-mobile sm:max-w-tablet lg:max-w-desktop mx-auto 
+  }
+  .pd {
+    @apply px-4
+  }
+
+  /*========== link style ===========*/
+  .sm-link-style {
+    @apply text-grey950 text-t3 font-bold
+  }
+  
+  .lg-link-style {
+    @apply text-grey500 text-t3 transition-colors duration-300 relative hover:text-grey950
+  }
+
+  .lg-link-style:hover::before,
+  .lg-link-style:focus::before {
+    content: '';
+    @apply absolute top-22 h-[3px] bg-orange500 w-full
+  }
+
+  .avatar {
+    @apply cursor-pointer transition-colors duration-300 rounded-full
+  }
+
+  .avatar:hover,
+  .avatar:focus {
+    @apply border-2 border-orange500
+  } 
+}
+
+
+
