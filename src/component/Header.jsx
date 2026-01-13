@@ -6,27 +6,23 @@ export default function Header({openMenu, handleMenu, children}) {
                 <button 
                     onClick={handleMenu} 
                     className='lg:hidden'
-                    aria-label={openMenu ? "Close menu" : "Open menu"}
                     aria-expanded={openMenu}
+                    aria-label={openMenu ? "Close menu" : "Open menu"}
                 >
                     <img src="/images/icon-menu.svg" alt="" aria-hidden="true"/>
                 </button>
-                
-                {/* Logo should be a link */}
-                <a href="/" aria-label="Sneakers Home">
-                    <img src="/images/logo.svg" alt="Sneakers Logo" className='lg:mr-5'/>
-                </a>
+                <img src="/images/logo.svg" alt="Sneaker company logo" className='lg:mr-5'/>
 
                 {/* Hidden nav bar in mobile screen */}
                 { openMenu &&
                 <div 
-                    className='absolute z-5 top-0 left-0 bottom-0 w-[70%] sm:w-1/3 p-8 bg-white shadow-2xl'
+                    className='absolute z-5 top-0 left-0 bottom-0 w-[70%] sm:w-1/3 p-8 bg-white'
                     role="dialog"
                     aria-modal="true"
                     aria-label="Mobile navigation"
                 >
                     <button onClick={handleMenu} className='mb-12' aria-label="Close menu">
-                        <img src="/images/icon-close.svg" alt="" aria-hidden="true"/>
+                        <img src="/images/icon-close.svg" alt="" aria-hidden="true" />
                     </button>
                     <ul className='flex flex-col gap-8'>
                         <li><a href="#" className="sm-link-style">Collections</a></li>
@@ -47,7 +43,7 @@ export default function Header({openMenu, handleMenu, children}) {
                     <li><a href="#" className="lg-link-style">Contact</a></li>
                 </ul>
 
-                {/* blurry background */}
+                {/* burry background */}
                 {openMenu && <div className='bg-grey950 opacity-70 absolute inset-0 z-3' aria-hidden="true"></div>}
 
             </nav>
@@ -55,9 +51,9 @@ export default function Header({openMenu, handleMenu, children}) {
             {/* shopping cart */}
             <div className='flex items-center gap-5 sm:gap-12'>
                 {children}
-                <button className="rounded-full border-2 border-transparent hover:border-orange-500 transition-all">
-                    <img src="/images/image-avatar.png" alt="User Profile" className='w-[24px] sm:w-[50px] avatar'/>
-                </button>
+                <picture>
+                    <img src="/images/image-avatar.png" alt="User avatar" className='w-[24px] sm:w-[50px] avatar'/>
+                </picture>
             </div>
         </header>
     )
